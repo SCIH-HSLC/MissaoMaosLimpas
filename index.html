@@ -5,19 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mini Game - Missão Mesmo com luvas</title>
     <style>
-        body {
-            background-image: url('https://raw.githubusercontent.com/SCIH-HSLC/MissaoMaosLimpas/refs/heads/main/40561_AF_V8_1366x687_HigieneDasMaos_Qualidade.png');
-            background-size: cover;
-            background-position: center;
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-        }
+       body {
+    background-image: url('https://raw.githubusercontent.com/SCIH-HSLC/MissaoMaosLimpas/refs/heads/main/40561_AF_V8_1366x687_HigieneDasMaos_Qualidade.png');
+    background-size: cover;
+    background-position: center;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+
+    /* Animação adicionada */
+    animation: zoomBackground 20s ease-in-out infinite alternate;
+}
+
+/* Keyframes da animação */
+@keyframes zoomBackground {
+    0% {
+        background-size: 100%;
+    }
+    100% {
+        background-size: 110%;
+    }
+}
 
         header {
             background-color: #0c357d;
