@@ -1,184 +1,210 @@
-
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mini Game - Missão Mesmo com luvas</title>
-    <style>
-       body {
-    background-image: url('https://raw.githubusercontent.com/SCIH-HSLC/MissaoMaosLimpas/refs/heads/main/40561_AF_V8_1366x687_HigieneDasMaos_Qualidade.png');
-    background-size: cover;
-    background-position: center;
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mini Game - Missão Mesmo com Luvas</title>
+  <style>
+    body {
+      background-image: url('https://raw.githubusercontent.com/SCIH-HSLC/MissaoMaosLimpas/refs/heads/main/40561_AF_V8_1366x687_HigieneDasMaos_Qualidade.png');
+      background-size: cover;
+      background-position: center;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      animation: zoomBackground 20s ease-in-out infinite alternate;
+    }
 
-    /* Animação adicionada */
-    animation: zoomBackground 20s ease-in-out infinite alternate;
-}
-
-/* Keyframes da animação */
-@keyframes zoomBackground {
-    0% {
+    @keyframes zoomBackground {
+      0% {
         background-size: 100%;
-    }
-    100% {
+      }
+      100% {
         background-size: 110%;
+      }
     }
-}
 
-        header {
-            background-color: #0c357d;
-            color: white;
-            padding: 20px;
-            width: 100%;
-            text-align: center;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
+    header {
+      background-color: #0c357d;
+      color: white;
+      padding: 20px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
 
-        main {
-            text-align: center;
-            max-width: 1200px;
-            width: 100%;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
+    main {
+      width: 90%;
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      text-align: center;
+    }
 
-        .button-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
+    .button-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
 
-        button {
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-            transition: background 0.3s;
-        }
+    button {
+      background-color: #4caf50;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      transition: background 0.3s;
+    }
 
-        button:hover:not(:disabled) {
-            background-color: #45a049;
-        }
+    button:hover:not(:disabled) {
+      background-color: #45a049;
+    }
 
-        button:disabled {
-            background-color: #ccc;
-            cursor: not-allowed;
-        }
-        container {
-            max-width: 100px;
-            margin: 2rem auto;
-            padding: 1rem;
-            display: block;
-            gap: 2rem;
-}
-      
-        #instructions {
-            background-color: white;
-            padding: 15px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            display: none;
-            margin-bottom: 20px;
-        }
+    button:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
 
-        iframe {
-            border: none;
-            width: 100%;
-            max-width: 500px;
-            height: 380px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
+    .container {
+      max-width: 100%;
+      margin: 2rem auto;
+      padding: 1rem;
+      display: block;
+    }
 
-        footer {
-            margin-top: 0px;
-            background-color: #333;
-            color: white;
-            padding: 20px;
-            width: 100%;
-            text-align: center;
-        }
+    #instructions {
+      background-color: white;
+      padding: 15px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      display: none;
+      margin-bottom: 20px;
+    }
 
-        footer a {
-            color: #4CAF50;
-            text-decoration: none;
-        }
+    /* Iframe responsivo */
+    .iframe-container {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%; /* 16:9 */
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      margin-bottom: 20px;
+    }
 
-        footer a:hover {
-            text-decoration: underline;
-        }
-    </style>
-    <script>
-        function toggleInstructions() {
-            const instructions = document.getElementById('instructions');
-            instructions.style.display = instructions.style.display === 'none' ? 'block' : 'none';
-        }
+    .iframe-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
 
-        function changeGame(src, button) {
-            const iframe = document.querySelector('iframe');
-            iframe.src = src;
+    footer {
+      margin-top: 0px;
+      background-color: #333;
+      color: white;
+      padding: 20px;
+      width: 100%;
+      text-align: center;
+    }
 
-            // Habilita todos os botões antes de desativar o atual
-            document.querySelectorAll('.button-container button').forEach(btn => btn.disabled = false);
-            button.disabled = true;
-        }
+    footer a {
+      color: #4caf50;
+      text-decoration: none;
+    }
 
-        function resetGame() {
-            const iframe = document.querySelector('iframe');
-            iframe.src = iframe.src;
-        }
-    </script>
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Responsividade adicional */
+    @media (max-width: 768px) {
+      .button-container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      button {
+        width: 100%;
+        max-width: 300px;
+      }
+    }
+  </style>
+
+  <script>
+    function toggleInstructions() {
+      const instructions = document.getElementById('instructions');
+      instructions.style.display =
+        instructions.style.display === 'none' ? 'block' : 'none';
+    }
+
+    function changeGame(src, button) {
+      const iframe = document.querySelector('.iframe-container iframe');
+      iframe.src = src;
+
+      // Habilita todos os botões e desabilita o atual
+      document.querySelectorAll('.button-container button').forEach((btn) => {
+        btn.disabled = false;
+      });
+      button.disabled = true;
+    }
+
+    function resetGame() {
+      const iframe = document.querySelector('.iframe-container iframe');
+      iframe.src = iframe.src;
+    }
+  </script>
 </head>
+
 <body>
-   <div id="login-card" class="card">
-   <div class="card-body">
-    <header>
-        <h1>Mini Game: Missão Mesmo com luvas</h1>
-        <p>Desafie-se e aprenda brincando!</p>
-    </header>
+  <header>
+    <h1>Mini Game: Missão Mesmo com Luvas</h1>
+    <p>Desafie-se e aprenda brincando!</p>
+  </header>
 
-    <main>
-        <div class="button-container">
-            <button onclick="changeGame('https://wordwall.net/pt/embed/0061a81d162b43af8ab8424e3ec005b9?themeId=21&templateId=30&fontStackId=0', this)">Jogo 1</button>
-            <button onclick="changeGame('https://wordwall.net/pt/embed/acd0119e375c4e71a1c642f27a423f13?themeId=1&templateId=3&fontStackId=0', this)">Jogo 2</button>
-            <button onclick="changeGame('https://wordwall.net/play/90088/421/395?themeId=1&templateId=8&fontStackId=0', this)">Jogo 3</button>
-            <button onclick="changeGame('https://view.genially.com/67dbf0c5d1911d2303dccc68/interactive-content-mitos-e-verdades-sobre-o-uso-de-luvas', this)">Jogo 4</button>
-            <button onclick="changeGame('https://view.genially.com/67db24a4387b06cdcb322316/interactive-content-oscar-de-higiene-das-maos', this)">Jogo 5</button>
-        </div>
+  <main>
+    <div class="button-container">
+      <button onclick="changeGame('https://wordwall.net/pt/embed/0061a81d162b43af8ab8424e3ec005b9?themeId=21&templateId=30&fontStackId=0', this)">Jogo 1</button>
+      <button onclick="changeGame('https://wordwall.net/pt/embed/acd0119e375c4e71a1c642f27a423f13?themeId=1&templateId=3&fontStackId=0', this)">Jogo 2</button>
+      <button onclick="changeGame('https://wordwall.net/play/90088/421/395?themeId=1&templateId=8&fontStackId=0', this)">Jogo 3</button>
+      <button onclick="changeGame('https://view.genially.com/67dbf0c5d1911d2303dccc68/interactive-content-mitos-e-verdades-sobre-o-uso-de-luvas', this)">Jogo 4</button>
+      <button onclick="changeGame('https://view.genially.com/67db24a4387b06cdcb322316/interactive-content-oscar-de-higiene-das-maos', this)">Jogo 5</button>
+    </div>
 
-        <div id="instructions">
-            <h2>Instruções</h2>
-            <p>Este é um jogo incentivador para testar seus conhecimentos. Clique em "Reiniciar Jogo" para começar novamente a qualquer momento!</p>
-        </div>
-        
-        
+    <div id="instructions">
+      <h2>Instruções</h2>
+      <p>Este é um jogo incentivador para testar seus conhecimentos. Clique em "Reiniciar Jogo" para começar novamente a qualquer momento!</p>
+    </div>
 
-        <iframe src="https://wordwall.net/pt/embed/0061a81d162b43af8ab8424e3ec005b9?themeId=21&templateId=30&fontStackId=0" allowfullscreen></iframe>
-      <div>
-        <button onclick="toggleInstructions()">Mostrar/Ocultar Instruções</button>
-        <button onclick="resetGame()">Reiniciar Jogo</button>
-      </div>
-        </main>
+    <div class="iframe-container">
+      <iframe src="https://wordwall.net/pt/embed/0061a81d162b43af8ab8424e3ec005b9?themeId=21&templateId=30&fontStackId=0" allowfullscreen></iframe>
+    </div>
 
-    <footer>
-      <div class="container">
-        <p>&copy; 2025 Mini Game. Desenvolvido por <a href="https://github.com/luccasfsilva">Lucas</a>.</p>
-        </div>
-    </footer>
+    <div>
+      <button onclick="toggleInstructions()">Mostrar/Ocultar Instruções</button>
+      <button onclick="resetGame()">Reiniciar Jogo</button>
+    </div>
+  </main>
 
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Mini Game. Desenvolvido por <a href="https://github.com/luccasfsilva">Lucas</a>.</p>
+    </div>
+  </footer>
 </body>
 </html>
